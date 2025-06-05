@@ -1,0 +1,7 @@
+.Header_div{
+    display: flex;
+    justify-content: space-around;
+}
+.account_img{
+    width: 50px;
+}
