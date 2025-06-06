@@ -2,24 +2,45 @@
 import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Theme_Button from './components/Theme_Button'
+import List from './components/List'
+import { ThemeContext, ThemeProvider } from './context/ThemeContext'
+import { useContext } from 'react'
+import Horizontal_line from './components/Horizontal_line'
 
 function App() {
+  const {isDarkMode} = useContext(ThemeContext);
+
+  const data = [
+    {id: 1, title: "학력사항",
+      script: "부산대학교 정보컴퓨터공학부 ai전공",
+    },
+    {id: 2, title: "경력사항",
+      script: "fffff",
+    },
+    {id: 3, title: "자격증",
+      script: "aaaaaaaaa"
+    },
+  ]
 
   return (
     <>
-    <div className='Big_container'>
+    <div className={isDarkMode? 'dark_mode':'mode'}>
       <div className='header_part'>
-        <Header></Header>
+        <Header />
+        <Theme_Button />
       </div>
       <div className='contents'>
-        <p>component로 칸 만들고, 내용은 따로 입력</p>
+        <Horizontal_line />
+        <List items = {data} />
+        <Horizontal_line />
       </div>
       <div>
-        <Footer></Footer>
+        <Footer />
       </div>
     </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
